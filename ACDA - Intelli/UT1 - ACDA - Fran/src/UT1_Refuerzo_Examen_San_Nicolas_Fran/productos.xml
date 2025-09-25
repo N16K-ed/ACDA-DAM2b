@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tienda>
+    <producto id="1">
+        <nombre>Teclado mecánico</nombre>
+        <categoria>Periféricos</categoria>
+        <precio>85.50</precio>
+        <stock>15</stock>
+    </producto>
+    <producto id="2">
+        <nombre>Monitor curvo 27"</nombre>
+        <categoria>Monitores</categoria>
+        <precio>299.99</precio>
+        <stock>8</stock>
+    </producto>
+    <producto id="3">
+        <nombre>Mouse inalámbrico</nombre>
+        <categoria>Periféricos</categoria>
+        <precio>35.00</precio>
+        <stock>42</stock>
+    </producto>
+</tienda>

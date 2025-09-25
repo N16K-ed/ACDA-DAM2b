@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mysql:
+    # Usamos versión específica 8.0 (no latest) por estabilidad
+    # latest puede cambiar y romper tu proyecto sin aviso
+    image: mysql:8.0
+    container_name: mysql-dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: masmysql
+      MYSQL_DATABASE: acda
+      MYSQL_USER: acda
+      MYSQL_PASSWORD: masacda
+    ports:
+      - "3306:3306"
+    volumes:
+      # Persistir datos de MySQL
+      - mysql_data:/var/lib/mysql     
+      
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:

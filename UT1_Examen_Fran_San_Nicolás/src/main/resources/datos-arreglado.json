@@ -1,0 +1,224 @@
+{
+  "personas": [
+    {
+      "id": 1,
+      "nombre": "Juan Pérez",
+      "edad": 32,
+      "rutas": [
+        [
+          {
+            "longitud": -3.70379,
+            "latitud": 40.41678,
+            "timestamp": "2024-09-16T10:15:30Z",
+            "elevacion": 667
+          },
+          {
+            "longitud": -3.70399,
+            "latitud": 40.41890,
+            "timestamp": "2024-09-16T11:20:45Z",
+            "elevacion": 700
+          },
+          {
+            "longitud": -3.70412,
+            "latitud": 40.41920,
+            "timestamp": "2024-09-16T11:45:00Z",
+            "elevacion": 710
+          }
+        ],
+
+        [
+          {
+            "longitud": -3.70550,
+            "latitud": 40.42190,
+            "timestamp": "2024-09-17T14:15:30Z",
+            "elevacion": 730
+          },
+          {
+            "longitud": -3.70600,
+            "latitud": 40.42250,
+            "timestamp": "2024-09-17T14:45:30Z",
+            "elevacion": 740
+          },
+          {
+            "longitud": -3.70650,
+            "latitud": 40.42300,
+            "timestamp": "2024-09-17T15:00:00Z",
+            "elevacion": 750
+          }
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "María López",
+      "edad": 28,
+      "rutas": [
+        [
+          {
+            "longitud": -3.70258,
+            "latitud": 40.41512,
+            "timestamp": "2024-09-17T09:10:25Z",
+            "elevacion": 650
+          },
+          {
+            "longitud": -3.70300,
+            "latitud": 40.41580,
+            "timestamp": "2024-09-17T09:30:10Z",
+            "elevacion": 670
+          },
+          {
+            "longitud": -3.70350,
+            "latitud": 40.41650,
+            "timestamp": "2024-09-17T09:50:15Z",
+            "elevacion": 690
+          }
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Carlos Martínez",
+      "edad": 45,
+      "rutas": [
+        [
+          {
+            "longitud": -3.70434,
+            "latitud": 40.41742,
+            "timestamp": "2024-09-18T08:05:15Z",
+            "elevacion": 680
+          },
+          {
+            "longitud": -3.70500,
+            "latitud": 40.41800,
+            "timestamp": "2024-09-18T08:25:30Z",
+            "elevacion": 690
+          },
+          {
+            "longitud": -3.70600,
+            "latitud": 40.41920,
+            "timestamp": "2024-09-18T08:50:45Z",
+            "elevacion": 700
+          }
+        ],
+        [
+          {
+            "longitud": -3.70700,
+            "latitud": 40.42100,
+            "timestamp": "2024-09-19T10:05:25Z",
+            "elevacion": 720
+          },
+          {
+            "longitud": -3.70800,
+            "latitud": 40.42250,
+            "timestamp": "2024-09-19T10:45:00Z",
+            "elevacion": 740
+          },
+          {
+            "longitud": -3.70900,
+            "latitud": 40.42390,
+            "timestamp": "2024-09-19T11:05:30Z",
+            "elevacion": 760
+          },
+          {
+            "longitud": -3.71000,
+            "latitud": 40.42450,
+            "timestamp": "2024-09-19T11:30:00Z",
+            "elevacion": 780
+          }
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Ana Gómez",
+      "edad": 39,
+      "rutas": [
+        [
+          {
+            "longitud": -3.70112,
+            "latitud": 40.41412,
+            "timestamp": "2024-09-20T07:30:15Z",
+            "elevacion": 640
+          },
+          {
+            "longitud": -3.70200,
+            "latitud": 40.41500,
+            "timestamp": "2024-09-20T07:50:30Z",
+            "elevacion": 660
+          },
+          {
+            "longitud": -3.70300,
+            "latitud": 40.41600,
+            "timestamp": "2024-09-20T08:15:45Z",
+            "elevacion": 680
+          },
+          {
+            "longitud": -3.70400,
+            "latitud": 40.41750,
+            "timestamp": "2024-09-20T08:40:00Z",
+            "elevacion": 700
+          }
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Pedro Ramírez",
+      "edad": 50,
+      "rutas": [
+        [
+          {
+            "longitud": -3.71000,
+            "latitud": 40.43000,
+            "timestamp": "2024-09-21T09:30:25Z",
+            "elevacion": 800
+          },
+          {
+            "longitud": -3.71100,
+            "latitud": 40.43100,
+            "timestamp": "2024-09-21T09:50:30Z",
+            "elevacion": 820
+          },
+          {
+            "longitud": -3.71200,
+            "latitud": 40.43250,
+            "timestamp": "2024-09-21T10:15:45Z",
+            "elevacion": 840
+          }
+        ],
+        [
+          {
+            "longitud": -3.71300,
+            "latitud": 40.43400,
+            "timestamp": "2024-09-22T11:05:15Z",
+            "elevacion": 860
+          },
+          {
+            "longitud": -3.71400,
+            "latitud": 40.43550,
+            "timestamp": "2024-09-22T11:25:30Z",
+            "elevacion": 880
+          },
+          {
+            "longitud": -3.71500,
+            "latitud": 40.43700,
+            "timestamp": "2024-09-22T11:45:00Z",
+            "elevacion": 900
+          },
+          {
+            "longitud": -3.71600,
+            "latitud": 40.43850,
+            "timestamp": "2024-09-22T12:00:30Z",
+            "elevacion": 920
+          },
+          {
+            "longitud": -3.71700,
+            "latitud": 40.44000,
+            "timestamp": "2024-09-22T12:20:00Z",
+            "elevacion": 940
+          }
+        ]
+      ]
+    }
+  ]
+}
