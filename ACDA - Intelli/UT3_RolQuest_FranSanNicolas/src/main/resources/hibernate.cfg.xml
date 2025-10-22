@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Configuración de conexión -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ACDA_UT3?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">acda</property>
+        <property name="hibernate.connection.password">masacda</property>
+
+        <!-- Dialecto para MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Crear/actualizar tablas automáticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mostrar SQL generado -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Mapeo de clases -->
+        <mapping class="org.masacda.model.Personaje"/>
+        <mapping class="org.masacda.model.Mision"/>
+        <mapping class="org.masacda.model.Partida"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-ut3
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ACDA_UT3
+      MYSQL_USER: acda
+      MYSQL_PASSWORD: masacda
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data_ut3:/var/lib/mysql
+      # - D:\Zaborra\ACDA\mysql:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data_ut3:
