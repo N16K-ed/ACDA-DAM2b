@@ -4,9 +4,9 @@
 
         <!-- Configuración de conexión -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ACDA_UT3?createDatabaseIfNotExist=true</property>
-        <property name="hibernate.connection.username">acda</property>
-        <property name="hibernate.connection.password">masacda</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3309/ACDA_UT3?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 
         <!-- Dialecto para MySQL -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

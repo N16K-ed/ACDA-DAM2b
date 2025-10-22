@@ -28,4 +28,8 @@ public class DetallePedido {
     public double getPrecio_unitario() {
         return precio_unitario;
     }
+
+    public void setId_pedido(int id_pedido) {
+        this.id_pedido = id_pedido;
+    }
 }

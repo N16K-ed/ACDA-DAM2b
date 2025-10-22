@@ -21,4 +21,8 @@ public class Historia {
     public int getId_videojuego() {
         return id_videojuego;
     }
+
+    public void setId_videojuego(int id_videojuego) {
+        this.id_videojuego = id_videojuego;
+    }
 }

@@ -1,14 +1,18 @@
 package models;
 
-import java.util.Date;
-
 public class Cliente {
     private int id;
-    private Date fecha;
+    private String nombre;
     private String correo;
 
-    public Cliente(Date fecha, String correo){
-        this.fecha = fecha;
+    public Cliente(String nombre, String correo){
+        this.nombre = nombre;
+        this.correo = correo;
+    }
+
+    public Cliente(int id, String nombre, String correo){
+        this.id = id;
+        this.nombre = nombre;
         this.correo = correo;
     }
 
@@ -16,8 +20,8 @@ public class Cliente {
         return id;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getNombre() {
+        return nombre;
     }
 
     public String getCorreo() {

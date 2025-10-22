@@ -22,6 +22,7 @@ public class Main {
         p.setPuntosVida(80);
         p.setArmaPrincipal("Bastón del Alba");
         personajeService.addPersonaje(p);
+        personajeService.deletePersonaje(p);
 
         // 2. Crear una misión
         Mision m = new Mision();
@@ -31,6 +32,7 @@ public class Main {
         m.setRecompensa(500);
         m.setActiva(true);
         misionService.addMision(m);
+        misionService.deleteMision(m);
 
         // 3. Crear una partida
         Partida partida = new Partida();
@@ -38,7 +40,7 @@ public class Main {
         partida.setNumeroJugadores(4);
         partida.setEstado("en curso");
         partidaService.addPartida(partida);
-
+        partidaService.deletePartida(partida);
         System.out.println("Datos iniciales añadidos correctamente.");
         //FALTA ARREGLAR LAS VALIDACIONES DE LOS "ENUMS"
     }

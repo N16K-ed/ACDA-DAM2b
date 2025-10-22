@@ -9,9 +9,9 @@ public class ConexionBD {
     private Connection conexion;
 
     private static final String DB = "ACDA_UT2";
-    private static final String URL = "jdbc:mysql://localhost:3306/" + DB;
+    private static final String URL = "jdbc:mysql://localhost:3309/" + DB + "?useSSL=false&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "masmysql";
 
     private ConexionBD() {
         try {

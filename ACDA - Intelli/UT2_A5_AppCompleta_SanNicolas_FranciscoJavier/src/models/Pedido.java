@@ -12,6 +12,12 @@ public class Pedido {
         this.id_cliente = id_cliente;
     }
 
+    public Pedido(int id, Date fecha, int id_cliente) {
+        this.id = id;
+        this.fecha = fecha;
+        this.id_cliente = id_cliente;
+    }
+
     public int getId() {
         return id;
     }
@@ -23,4 +29,9 @@ public class Pedido {
     public int getId_cliente() {
         return id_cliente;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
