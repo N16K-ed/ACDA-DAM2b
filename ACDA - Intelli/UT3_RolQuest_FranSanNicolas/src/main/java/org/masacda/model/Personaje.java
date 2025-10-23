@@ -1,7 +1,5 @@
 package org.masacda.model;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,9 +25,12 @@ public class Personaje {
     @Column(nullable = false, length = 100)
     private String armaPrincipal;
 
-    public Personaje(){
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fichaID")
+    private FichaDetalle fichaDetalle;
 
-    }
+
+    public Personaje(){ }
 
     public int getPersonajeID() {
         return personajeID;
@@ -55,6 +56,10 @@ public class Personaje {
         return armaPrincipal;
     }
 
+    public FichaDetalle getFichaDetalle() {
+        return fichaDetalle;
+    }
+
     public void setPersonajeID(int personajeID) {
         this.personajeID = personajeID;
     }
@@ -77,5 +82,9 @@ public class Personaje {
 
     public void setArmaPrincipal(String armaPrincipal) {
         this.armaPrincipal = armaPrincipal;
+    }
+
+    public void setFichaDetalle(FichaDetalle fichaDetalle) {
+        this.fichaDetalle = fichaDetalle;
     }
 }

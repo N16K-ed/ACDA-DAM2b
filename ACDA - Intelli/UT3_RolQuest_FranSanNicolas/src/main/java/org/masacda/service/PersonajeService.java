@@ -12,11 +12,20 @@ public class PersonajeService {
     private static final Logger logger = LogManager.getLogger(PersonajeService.class);
 
     public void addPersonaje(Personaje p) {
-        if(p.getClase().equals("guerrero") || p.getClase().equals("mago") || p.getClase().equals("arquero")){
+        if(p.getClase().equalsIgnoreCase("guerrero") || p.getClase().equalsIgnoreCase("guerrera")){
+            p.setClase("GUERRERO");
             dao.save(p);
-            logger.info("Personaje añadido: {} (Clase: {})", p.getNombre(), p.getClase());
+            logger.info("Personaje añadido: {} (Clase: GUERRERO)", p.getNombre());
+        }else if(p.getClase().equalsIgnoreCase("mago") || p.getClase().equalsIgnoreCase("maga")){
+            p.setClase("MAGO");
+            dao.save(p);
+            logger.info("Personaje añadido: {} (Clase: MAGO)", p.getNombre());
+        }else if(p.getClase().equalsIgnoreCase("arquero") || p.getClase().equalsIgnoreCase("arquera")){
+            p.setClase("ARQUERO");
+            dao.save(p);
+            logger.info("Personaje añadido: {} (Clase: ARQUERO)", p.getNombre());
         }else{
-            logger.warn("Clase de Personaje no válida.\nClases válidas:\n- guerrero\n- mago\n- arquero");
+            logger.warn("Clase de Personaje no válida.\nClases válidas:\n- Guerrero\n- Mago\n- Arquero");
         }
     }
 
@@ -29,10 +38,20 @@ public class PersonajeService {
     }
 
     public void updatePersonaje(Personaje p) {
-        if(p.getClase().equals("guerrero") || p.getClase().equals("mago") || p.getClase().equals("arquero")){
+        if(p.getClase().equalsIgnoreCase("guerrero") || p.getClase().equalsIgnoreCase("guerrera")){
+            p.setClase("GUERRERO");
             dao.update(p);
+            logger.info("Personaje modificado: {} (Clase: GUERRERO)", p.getNombre());
+        }else if(p.getClase().equalsIgnoreCase("mago") || p.getClase().equalsIgnoreCase("maga")){
+            p.setClase("MAGO");
+            dao.update(p);
+            logger.info("Personaje modificado: {} (Clase: MAGO)", p.getNombre());
+        }else if(p.getClase().equalsIgnoreCase("arquero") || p.getClase().equalsIgnoreCase("arquera")){
+            p.setClase("ARQUERO");
+            dao.update(p);
+            logger.info("Personaje modificado: {} (Clase: ARQUERO)", p.getNombre());
         }else{
-            logger.warn("Clase de Personaje no válida.\nClases válidas:\n- guerrero\n- mago\n- arquero");
+            logger.warn("Clase de Personaje no válida.\nClases válidas:\n- Guerrero\n- Mago\n- Arquero");
         }
     }
 

@@ -12,11 +12,20 @@ public class MisionService {
     private static final Logger logger = LogManager.getLogger(MisionService.class);
 
     public void addMision(Mision m) {
-        if(m.getDificultad().equals("baja") || m.getDificultad().equals("media") || m.getDificultad().equals("alta")){
+        if(m.getDificultad().equalsIgnoreCase("baja") || m.getDificultad().equalsIgnoreCase("bajo")){
+            m.setDificultad("BAJA");
             dao.save(m);
-            logger.info("Misión añadida: {} (Dificultad: {})", m.getTitulo(), m.getDificultad());
+            logger.info("Misión añadida: {} (Dificultad: BAJA)", m.getTitulo());
+        }else if(m.getDificultad().equalsIgnoreCase("media") || m.getDificultad().equalsIgnoreCase("medio")){
+            m.setDificultad("MEDIA");
+            dao.save(m);
+            logger.info("Misión añadida: {} (Dificultad: MEDIA)", m.getTitulo());
+        }else if(m.getDificultad().equalsIgnoreCase("alta") || m.getDificultad().equalsIgnoreCase("alto")){
+            m.setDificultad("ALTA");
+            dao.save(m);
+            logger.info("Misión añadida: {} (Dificultad: ALTA)", m.getTitulo());
         }else{
-            logger.warn("Dificultad de Misioón no válida.\nDificultades válidas:\n- baja\n- media\n- alta");
+            logger.warn("Dificultad de Misión no válida.\nDificultades válidas:\n- Baja\n- Media\n- Alta");
         }
     }
 
@@ -29,10 +38,20 @@ public class MisionService {
     }
 
     public void updateMision(Mision m) {
-        if(m.getDificultad().equals("baja") || m.getDificultad().equals("media") || m.getDificultad().equals("alta")){
+        if(m.getDificultad().equalsIgnoreCase("baja") || m.getDificultad().equalsIgnoreCase("bajo")){
+            m.setDificultad("BAJA");
             dao.update(m);
+            logger.info("Misión modificada: {} (Dificultad: BAJA)", m.getTitulo());
+        }else if(m.getDificultad().equalsIgnoreCase("media") || m.getDificultad().equalsIgnoreCase("medio")){
+            m.setDificultad("MEDIA");
+            dao.update(m);
+            logger.info("Misión modificada: {} (Dificultad: MEDIA)", m.getTitulo());
+        }else if(m.getDificultad().equalsIgnoreCase("alta") || m.getDificultad().equalsIgnoreCase("alto")){
+            m.setDificultad("ALTA");
+            dao.update(m);
+            logger.info("Misión modificada: {} (Dificultad: ALTA)", m.getTitulo());
         }else{
-            logger.warn("Dificultad de Misioón no válida.\nDificultades válidas:\n- baja\n- media\n- alta");
+            logger.warn("Dificultad de Misión no válida.\nDificultades válidas:\n- Baja\n- Media\n- Alta");
         }
     }
 
