@@ -2,7 +2,9 @@ package org.masacda.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Partida")
@@ -25,8 +27,11 @@ public class Partida {
     private String estado;
 
     public Partida(){
-
+        this.misiones = new ArrayList<>();
     }
+
+    @OneToMany(mappedBy = "partida", cascade = CascadeType.ALL)
+    private List<Mision> misiones;
 
     public int getPartidaID() {
         return partidaID;
@@ -66,5 +71,21 @@ public class Partida {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public List<Mision> getMisiones() {
+        return misiones;
+    }
+    public void setMisiones(List<Mision> misiones) {
+        this.misiones.clear(); //
+        if(misiones != null){
+            for(Mision m : misiones){
+                addMision(m);
+            }
+        }
+    }
+    public void addMision(Mision mision) {
+        mision.setPartida(this);
+        this.misiones.add(mision);
     }
 }

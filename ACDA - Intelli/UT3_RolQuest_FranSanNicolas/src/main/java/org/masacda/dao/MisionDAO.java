@@ -28,7 +28,7 @@ public class MisionDAO {
 
     public List<Mision> findAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Personaje", Mision.class).list();
+            return session.createQuery("from Mision", Mision.class).list();
         }
     }
 

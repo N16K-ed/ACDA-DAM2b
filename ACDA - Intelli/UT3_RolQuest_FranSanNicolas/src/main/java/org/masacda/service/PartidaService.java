@@ -19,11 +19,11 @@ public class PartidaService {
         }else if(p.getEstado().equalsIgnoreCase("finalizada") || p.getEstado().equalsIgnoreCase("finalizado")){
             p.setEstado("FINALIZADA");
             dao.save(p);
-            logger.info("Partida añadida: {} (Estado: MAGO)", p.getNombre());
+            logger.info("Partida añadida: {} (Estado: FINALIZADA)", p.getNombre());
         }else if(p.getEstado().equalsIgnoreCase("pausada") || p.getEstado().equalsIgnoreCase("pausado")){
             p.setEstado("PAUSADA");
             dao.save(p);
-            logger.info("Partida añadida: {} (Estado: ARQUERO)", p.getNombre());
+            logger.info("Partida añadida: {} (Estado: PAUSADA)", p.getNombre());
         }else{
             logger.warn("Estado de partida no válido.\nEstados válidos:\n- En curso\n- finalizada\n- pausada");
         }
@@ -45,11 +45,11 @@ public class PartidaService {
         }else if(p.getEstado().equalsIgnoreCase("finalizada") || p.getEstado().equalsIgnoreCase("finalizado")){
             p.setEstado("FINALIZADA");
             dao.update(p);
-            logger.info("Partida modificada: {} (Estado: MAGO)", p.getNombre());
+            logger.info("Partida modificada: {} (Estado: FINALIZADA)", p.getNombre());
         }else if(p.getEstado().equalsIgnoreCase("pausada") || p.getEstado().equalsIgnoreCase("pausado")){
             p.setEstado("PAUSADA");
             dao.update(p);
-            logger.info("Partida modificada: {} (Estado: ARQUERO)", p.getNombre());
+            logger.info("Partida modificada: {} (Estado: PAUSADA)", p.getNombre());
         }else{
             logger.warn("Estado de partida no válido.\nEstados válidos:\n- En curso\n- finalizada\n- pausada");
         }

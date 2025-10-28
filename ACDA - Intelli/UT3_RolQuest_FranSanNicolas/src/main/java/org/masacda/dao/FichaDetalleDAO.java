@@ -28,7 +28,7 @@ public class FichaDetalleDAO {
 
     public List<FichaDetalle> findAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Personaje", FichaDetalle.class).list();
+            return session.createQuery("from FichaDetalle", FichaDetalle.class).list();
         }
     }
 

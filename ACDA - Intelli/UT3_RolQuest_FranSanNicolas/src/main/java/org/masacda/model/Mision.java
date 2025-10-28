@@ -25,9 +25,12 @@ public class Mision {
     @Column(nullable = false)
     private boolean activa;
 
-    public Mision(){
+    public Mision(){}
 
-    }
+    @ManyToOne
+    @JoinColumn(name = "partidaID")
+    private Partida partida;
+
     public int getMisionID() {
         return misionID;
     }
@@ -74,5 +77,13 @@ public class Mision {
 
     public void setActiva(boolean activa) {
         this.activa = activa;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
 }

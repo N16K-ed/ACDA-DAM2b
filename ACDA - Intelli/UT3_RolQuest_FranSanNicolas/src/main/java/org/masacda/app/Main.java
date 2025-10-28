@@ -15,12 +15,12 @@ public class Main {
         PartidaService partidaService = new PartidaService();
 
         // 1. Crear un personaje
-        Personaje p = new Personaje();
-        p.setNombre("Ayla la Hechicera");
-        p.setClase("Maga");
-        p.setNivel(5);
-        p.setPuntosVida(80);
-        p.setArmaPrincipal("Bastón del Alba");
+        Personaje pj = new Personaje();
+        pj.setNombre("Ayla la Hechicera");
+        pj.setClase("Maga");
+        pj.setNivel(5);
+        pj.setPuntosVida(80);
+        pj.setArmaPrincipal("Bastón del Alba");
 
         //FichaDetalle
         FichaDetalle fd = new FichaDetalle();
@@ -29,8 +29,8 @@ public class Main {
         fd.setDeidad("");
         fd.setRaza("");
 
-        p.setFichaDetalle(fd);
-        personajeService.addPersonaje(p);
+        pj.setFichaDetalle(fd);
+        personajeService.addPersonaje(pj);
 
         // 2. Crear una misión
         Mision m = new Mision();
@@ -49,5 +49,28 @@ public class Main {
         partidaService.addPartida(partida);
 
         System.out.println("Datos iniciales añadidos correctamente.");
+
+
+        Partida p = new Partida();
+        p.setNombre("Aventuras en el Reino del Norte");
+        p.setEstado("en curso");
+
+        Mision m1 = new Mision();
+        m1.setTitulo("El Bosque Maldito");
+        m1.setDescripcion("Recorre el bosque y derrota a los espectros.");
+        m1.setDificultad("MEDIA");
+        m1.setRecompensa(100);
+        m1.setActiva(true);
+        p.addMision(m1);
+
+        Mision m2 = new Mision();
+        m2.setTitulo("El Santuario Perdido");
+        m2.setDescripcion("Encuentra el santuario perdido y protege el artefacto.");
+        m2.setDificultad("ALTA");
+        m2.setRecompensa(200);
+        m2.setActiva(true);
+        p.addMision(m2);
+
+        partidaService.addPartida(p);
     }
 }
