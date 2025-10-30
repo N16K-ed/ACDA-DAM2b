@@ -8,6 +8,8 @@ import org.masacda.service.MisionService;
 import org.masacda.service.PartidaService;
 import org.masacda.service.PersonajeService;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         PersonajeService personajeService = new PersonajeService();
@@ -72,5 +74,34 @@ public class Main {
         p.addMision(m2);
 
         partidaService.addPartida(p);
+
+        Personaje p1 = new Personaje("Ayla la Hechicera", "Maga");
+        p1.setNivel(5);
+        p1.setPuntosVida(80);
+        p1.setArmaPrincipal("Bastón del Alba");
+
+        Personaje p2 = new Personaje("Rurik el Fuerte", "Guerrero");
+        p2.setNivel(5);
+        p2.setPuntosVida(100);
+        p2.setArmaPrincipal("Mandoble del Ocaso");
+
+        Mision mis1 = new Mision("El Guardián del Lago");
+        mis1.setDescripcion("Recorre el lago y derrota a los espectros.");
+        mis1.setDificultad("MEDIA");
+        mis1.setRecompensa(100);
+        mis1.setActiva(true);
+
+        Mision mis2 = new Mision("La Torre de Cristal");
+        mis2.setDescripcion("Encuentra el santuario perdido y protege el artefacto.");
+        mis2.setDificultad("ALTA");
+        mis2.setRecompensa(200);
+        mis2.setActiva(true);
+
+
+        p1.setMisiones(List.of(mis1, mis2));
+        p2.setMisiones(List.of(mis1));
+
+        personajeService.addPersonaje(p1);
+        personajeService.addPersonaje(p2);
     }
 }

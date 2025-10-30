@@ -1,7 +1,7 @@
 package org.masacda.model;
 
 import jakarta.persistence.*;
-import org.masacda.service.MisionService;
+import java.util.List;
 
 @Entity
 @Table(name = "Mision")
@@ -27,9 +27,16 @@ public class Mision {
 
     public Mision(){}
 
+    public Mision(String titulo){
+        this.titulo = titulo;
+    }
+
     @ManyToOne
     @JoinColumn(name = "partidaID")
     private Partida partida;
+
+    @ManyToMany(mappedBy = "misiones")
+    private List<Personaje> personajes;
 
     public int getMisionID() {
         return misionID;
@@ -85,5 +92,29 @@ public class Mision {
 
     public void setPartida(Partida partida) {
         this.partida = partida;
+    }
+    public List<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+    public void setPersonajes(List<Personaje> personajes) {
+        this.personajes = personajes;
+    }
+    public void addPersonaje(Personaje personaje) {
+        if (!this.personajes.contains(personaje)) {
+            this.personajes.add(personaje);
+        }
+        if (!personaje.getMisiones().contains(this)) {
+            personaje.getMisiones().add(this);
+        }
+    }
+
+    public void removePersonaje(Personaje personaje) {
+        if (this.personajes.contains(personaje)) {
+            this.personajes.remove(personaje);
+        }
+        if (personaje.getMisiones().contains(this)) {
+            personaje.getMisiones().remove(this);
+        }
     }
 }
