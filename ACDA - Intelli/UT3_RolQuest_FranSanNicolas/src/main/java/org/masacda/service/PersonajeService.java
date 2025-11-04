@@ -75,4 +75,21 @@ public class PersonajeService {
         dao.delete(p);
     }
 
+    public List<Personaje> getPersonajesPorNivelMinimo(int nivel){
+        List<Personaje> personajes = null;
+        if(nivel < 1){
+            logger.warn("El nivel de los personajes no puede ser inferior a 1.");
+        }else{
+            personajes = dao.obtenerPorNivel(nivel);
+            logger.info("Obtenidos {} personaje(s).", personajes.size());
+        }
+        return personajes;
+    }
+
+    public List<Personaje> getPersonajesPorMision(Mision m){
+        List<Personaje> personajes = dao.obtenerPorMision(m);
+        logger.info("{} personaje(s) asociados a la misión: {}", personajes.size(), m.getTitulo());
+        return personajes;
+    }
+
 }

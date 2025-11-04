@@ -58,4 +58,10 @@ public class PartidaService {
     public void deletePartida(Partida p) {
         dao.delete(p);
     }
+
+    public List<Partida> obtenerPartidasConMisiones(int numMisiones){
+        List<Partida> partidas = dao.obtenerConMisiones(numMisiones);
+        logger.info("{} partidas con más de {} misiones.", partidas.size(), numMisiones);
+        return partidas;
+    }
 }

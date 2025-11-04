@@ -2,7 +2,9 @@ package org.masacda.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.masacda.connection.HibernateUtil;
+import org.masacda.model.Mision;
 import org.masacda.model.Personaje;
 import java.util.List;
 
@@ -53,6 +55,24 @@ public class PersonajeDAO {
         } catch (Exception e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
+        }
+    }
+
+    public List<Personaje> obtenerPorNivel(int nivel){
+        String hql = "FROM Personaje p WHERE p.nivel > :nivelMinimo";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Personaje> query = session.createQuery(hql, Personaje.class);
+            query.setParameter("nivelMinimo", nivel);
+            return query.list();
+        }
+    }
+
+    public List<Personaje> obtenerPorMision(Mision m){
+        String hql = "SELECT p FROM Personaje p JOIN p.misiones m  WHERE m.titulo = :titulo";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Personaje> query = session.createQuery(hql,Personaje.class);
+            query.setParameter("titulo", m.getTitulo());
+            return query.list();
         }
     }
 }

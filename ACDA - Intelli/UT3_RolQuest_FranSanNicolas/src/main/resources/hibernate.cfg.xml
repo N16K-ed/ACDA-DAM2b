@@ -16,7 +16,7 @@
 
         <!-- Mostrar SQL generado -->
         <property name="hibernate.show_sql">false</property>
-        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
 
         <!-- Mapeo de clases -->
         <mapping class="org.masacda.model.Personaje"/>

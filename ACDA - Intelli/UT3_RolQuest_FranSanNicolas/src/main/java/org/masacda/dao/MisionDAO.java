@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.masacda.connection.HibernateUtil;
 import org.masacda.model.Mision;
+
+
 import java.util.List;
 
 public class MisionDAO {
@@ -53,6 +55,13 @@ public class MisionDAO {
         } catch (Exception e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
+        }
+    }
+
+    public List<Mision> obtenerActivas(){
+        String hql = "FROM Mision m WHERE m.activa = true";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.createQuery(hql, Mision.class).list();
         }
     }
 }

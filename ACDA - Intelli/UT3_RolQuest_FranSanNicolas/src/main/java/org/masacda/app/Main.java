@@ -1,5 +1,7 @@
 package org.masacda.app;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.masacda.model.FichaDetalle;
 import org.masacda.model.Mision;
 import org.masacda.model.Partida;
@@ -11,6 +13,9 @@ import org.masacda.service.PersonajeService;
 import java.util.List;
 
 public class Main {
+
+    private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
         PersonajeService personajeService = new PersonajeService();
         MisionService misionService = new MisionService();
@@ -51,7 +56,6 @@ public class Main {
         partidaService.addPartida(partida);
 
         System.out.println("Datos iniciales añadidos correctamente.");
-
 
         Partida p = new Partida();
         p.setNombre("Aventuras en el Reino del Norte");
@@ -97,11 +101,33 @@ public class Main {
         mis2.setRecompensa(200);
         mis2.setActiva(true);
 
-
         p1.setMisiones(List.of(mis1, mis2));
         p2.setMisiones(List.of(mis1));
 
         personajeService.addPersonaje(p1);
         personajeService.addPersonaje(p2);
+
+        List<Personaje> personajesPorMision = personajeService.getPersonajesPorMision(m1);
+        logger.info("Personajes con la misión {} asignada.", m1.getTitulo());
+        for(Personaje persMision : personajesPorMision){
+            logger.info(" {} ({})", persMision.getNombre(),persMision.getClase());
+        }
+
+        List<Personaje> personajesPorNivel = personajeService.getPersonajesPorNivelMinimo(4);
+        logger.info("Personajes con nivel mayor a {}.", 4);
+        for(Personaje persNivel : personajesPorNivel){
+            logger.info(" {} ({})", persNivel.getNombre(),persNivel.getClase());
+        }
+        List<Mision> misionesActivas = misionService.getMisionesActivas();
+        logger.info("Lista de misiones activas:");
+        for(Mision misionActiva : misionesActivas){
+            logger.info("{}",misionActiva.getTitulo());
+        }
+
+        List<Partida> partidasConMisiones = partidaService.obtenerPartidasConMisiones(1);
+        logger.info("Partidas con más de {} misione(s).", 1);
+        for(Partida partidaConMision : partidasConMisiones){
+            logger.info("{} | Estado: {}", partidaConMision.getNombre(), partidaConMision.getEstado());
+        }
     }
 }

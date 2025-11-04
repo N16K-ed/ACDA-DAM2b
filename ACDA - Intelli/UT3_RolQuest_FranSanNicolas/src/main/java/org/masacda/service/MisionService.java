@@ -76,4 +76,9 @@ public class MisionService {
         dao.delete(m);
     }
 
+    public List<Mision> getMisionesActivas(){
+        List<Mision> activas = dao.obtenerActivas();
+        logger.info("Misiones activas: {}", activas.size());
+        return activas;
+    }
 }

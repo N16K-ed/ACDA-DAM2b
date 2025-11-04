@@ -2,6 +2,7 @@ package org.masacda.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.masacda.connection.HibernateUtil;
 import org.masacda.model.Partida;
 
@@ -53,6 +54,15 @@ public class PartidaDAO {
         } catch (Exception e) {
             if (tx != null) tx.rollback();
             e.printStackTrace();
+        }
+    }
+
+    public List<Partida> obtenerConMisiones(int numMisiones){
+        String hql = "FROM Partida p WHERE size(p.misiones) > :num";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<Partida> query = session.createQuery(hql, Partida.class);
+            query.setParameter("num", numMisiones);
+            return query.list();
         }
     }
 }
