@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de grupos musculares</title>
+</head>
+<body>
+
+<h1>Listado de grupos musculares</h1>
+
+<p>
+    <a href="/web">Volver al inicio</a>
+</p>
+
+<p>
+    <a href="/web/grupos/nuevo">Nuevo grupo</a>
+</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Fila de ejemplo estática.
+         El alumnado deberá sustituirla por un th:each con datos reales. -->
+    <tr th:each="grupo : ${grupos}">
+        <td th:text="${grupo.id}">1</td>
+        <td th:text="${grupo.nombre}">Pectoral</td>
+        <td th:text="${grupo.descripcion}">Músculo del pecho</td>
+        <td>
+            <a th:href="@{'/web/grupos/' + ${grupo.id} + '/editar'}">Editar</a>
+            <a th:href="@{'/web/grupos/' + ${grupo.id} + '/borrar'}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

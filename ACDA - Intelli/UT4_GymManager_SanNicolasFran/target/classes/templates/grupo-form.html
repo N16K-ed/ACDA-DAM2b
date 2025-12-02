@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de grupo muscular</title>
+</head>
+<body>
+
+<h1>Formulario de grupo muscular</h1>
+
+<p>
+    <a href="/web/grupos">Volver al listado</a>
+</p>
+
+<form action="/web/grupos/guardar" method="post">
+
+    <!-- Campo oculto para el id (en edición).
+         El alumnado deberá adaptarlo con th:field -->
+    <input type="hidden" name="id">
+
+    <p>
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+    </p>
+
+    <p>
+        <label>Descripción:</label>
+        <input type="text" name="descripcion">
+    </p>
+
+    <p>
+        <button type="submit">Guardar</button>
+    </p>
+
+</form>
+
+</body>
+</html>

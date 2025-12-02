@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de grupo muscular</title>
+</head>
+<body>
+
+<h1>Formulario de grupo muscular</h1>
+
+<p>
+    <a href="/web/grupos">Volver al listado</a>
+</p>
+
+<form th:action="@{/web/grupos/guardar}"
+      th:object="${grupoMuscular}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" />
+
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" />
+
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>
