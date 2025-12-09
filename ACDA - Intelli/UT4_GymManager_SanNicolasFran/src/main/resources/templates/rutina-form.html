@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de rutina</title>
+</head>
+<body>
+
+<h1>Formulario de rutina</h1>
+
+<p>
+    <a href="/web/rutinas">Volver al listado</a>
+</p>
+
+<form th:action="@{/web/rutinas/guardar}"
+      th:object="${rutina}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/>
+
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/>
+
+    <label>Dificultad:</label>
+    <select th:field="*{nivel}" required>
+        <option value="">Selecciona una dificultad</option>
+        <option th:each="nivel : ${niveles}" th:value="${nivel}" th:text="${nivel}"></option>
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>

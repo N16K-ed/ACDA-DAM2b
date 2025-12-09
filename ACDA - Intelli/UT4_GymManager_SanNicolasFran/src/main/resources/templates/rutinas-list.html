@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de rutinas</title>
+</head>
+<body>
+
+<h1>Listado de rutinas</h1>
+
+<p>
+    <a href="/web">Volver al inicio</a>
+</p>
+
+<p>
+    <a href="/web/rutinas/nueva">Nueva rutina</a>
+</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Nivel</th>
+        <th>Nº Ejercicios</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Fila de ejemplo estática.
+         El alumnado deberá sustituirla por un th:each con datos reales. -->
+    <tr th:each="rutina : ${rutinas}">
+        <td th:text="${rutina.id}">1</td>
+        <td th:text="${rutina.nombre}">Rutina1</td>
+        <td th:text="${rutina.descripcion}">Descripcion1</td>
+        <td th:text="${rutina.nivel}">Nivel1</td>
+        <td ></td>
+        <td>
+            <a th:href="@{'/web/rutinas/' + ${rutina.id}'}">Ver detalle</a>
+            <a th:href="@{'/web/rutinas/' + ${rutina.id} + '/editar'}">Editar</a>
+            <a th:href="@{'/web/rutinas/' + ${rutina.id} + '/borrar'}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
