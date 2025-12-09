@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de ejercicio</title>
+</head>
+<body>
+
+<h1>Formulario de ejercicio</h1>
+
+<p>
+    <a href="/web/ejercicios">Volver al listado</a>
+</p>
+
+<form th:action="@{/web/ejercicios/guardar}"
+      th:object="${ejercicio}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/>
+
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/>
+
+    <label>Dificultad:</label>
+    <select th:field="*{dificultad}" required>
+        <option value="">Selecciona una dificultad</option>
+        <option th:each="dificultad : ${dificultades}" th:value="${dificultad}" th:text="${dificultad}"></option>
+    </select>
+
+    <label>Grupo Muscular:</label>
+    <select th:field="*{grupoMuscular}" required>
+        <option value="">Selecciona un grupo muscular</option>
+        <option th:each="grupo : ${grupos}" th:value="${grupo.id}" th:text="${grupo.nombre}"></option>
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>

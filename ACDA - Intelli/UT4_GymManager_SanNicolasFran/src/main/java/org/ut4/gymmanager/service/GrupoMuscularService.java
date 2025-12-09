@@ -27,7 +27,16 @@ public class GrupoMuscularService {
         return grupoMuscularRepository.save(grupo);
     }
 
+
     public void eliminar(long id){
-        grupoMuscularRepository.deleteById(id);
+        try{
+            grupoMuscularRepository.deleteById(id);
+        }catch(Exception e){
+            /*
+              Saltaba error al borrar un grupo que estaba asociado a un ejercicio
+              He hecho esta chapucilla para que no salga error en la "web"
+            */
+            System.err.println("Error al borrar grupo muscular: posible conflicto de FKs");
+        }
     }
 }

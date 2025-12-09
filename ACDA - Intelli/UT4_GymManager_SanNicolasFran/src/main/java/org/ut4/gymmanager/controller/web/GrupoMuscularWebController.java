@@ -51,10 +51,19 @@ public class GrupoMuscularWebController {
 
         GrupoMuscular grupoMuscular = grupoMuscularService.buscarPorId(id);
 
-        //AQUI ME QUEDO
+        if(grupoMuscular != null){
+            model.addAttribute(grupoMuscular);
 
+
+            return "grupo-form";
+        }
 
         return "redirect:/web/grupos";
     }
 
+    @GetMapping("web/grupos/{id}/borrar")
+    public String eliminar(@PathVariable long id){
+        grupoMuscularService.eliminar(id);
+        return "redirect:/web/grupos";
+    }
 }

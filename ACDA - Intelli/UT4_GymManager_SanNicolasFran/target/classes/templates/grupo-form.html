@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Formulario de grupo muscular</title>
@@ -12,26 +12,19 @@
     <a href="/web/grupos">Volver al listado</a>
 </p>
 
-<form action="/web/grupos/guardar" method="post">
+<form th:action="@{/web/grupos/guardar}"
+      th:object="${grupoMuscular}"
+      method="post">
 
-    <!-- Campo oculto para el id (en edición).
-         El alumnado deberá adaptarlo con th:field -->
-    <input type="hidden" name="id">
+    <input type="hidden" th:field="*{id}" />
 
-    <p>
-        <label>Nombre:</label>
-        <input type="text" name="nombre">
-    </p>
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" />
 
-    <p>
-        <label>Descripción:</label>
-        <input type="text" name="descripcion">
-    </p>
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" />
 
-    <p>
-        <button type="submit">Guardar</button>
-    </p>
-
+    <button type="submit">Guardar</button>
 </form>
 
 </body>

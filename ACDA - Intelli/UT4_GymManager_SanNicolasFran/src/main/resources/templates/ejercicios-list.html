@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de ejercicios</title>
+</head>
+<body>
+
+<h1>Listado de ejercicios</h1>
+
+<p>
+    <a href="/web">Volver al inicio</a>
+</p>
+
+<p>
+    <a href="/web/ejercicios/nuevo">Nuevo ejercicio</a>
+</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Dificultad</th>
+        <th>Grupo muscular</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Fila de ejemplo estática.
+         El alumnado deberá sustituirla por un th:each con datos reales. -->
+    <tr th:each="ejercicio : ${ejercicios}">
+        <td th:text="${ejercicio.id}">1</td>
+        <td th:text="${ejercicio.nombre}">Ejercicio1</td>
+        <td th:text="${ejercicio.descripcion}">Descripcion1</td>
+        <td th:text="${ejercicio.dificultad}">Dificultad</td>
+        <td th:text="${ejercicio.grupoMuscular.nombre}">GM1</td>
+        <td>
+            <a th:href="@{'/web/ejercicios/' + ${ejercicio.id} + '/editar'}">Editar</a>
+            <a th:href="@{'/web/ejercicios/' + ${ejercicio.id} + '/borrar'}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
