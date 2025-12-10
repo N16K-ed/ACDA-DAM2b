@@ -28,7 +28,7 @@ public class RutinaService {
     // Métodos mínimos:
     // - List<Rutina> listarTodas()
 
-    public List<Rutina>  listarTodos(){
+    public List<Rutina> listarTodos(){
         return rutinaRepository.findAll();
     }
 

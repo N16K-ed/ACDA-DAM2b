@@ -55,6 +55,14 @@ public class Rutina {
         this.nivel = nivel;
     }
 
+    public List<RutinaEjercicio> getEjercicios() {
+        return ejercicios;
+    }
+
+    public void setEjercicios(List<RutinaEjercicio> ejercicios) {
+        this.ejercicios = ejercicios;
+    }
+
     @Override
     public String toString() {
         return "Rutina{" +
