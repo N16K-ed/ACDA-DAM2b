@@ -3,7 +3,6 @@ package org.ut4.gymmanager.controller.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.ut4.gymmanager.model.Ejercicio;
 import org.ut4.gymmanager.model.Rutina;
 import org.ut4.gymmanager.model.RutinaEjercicio;
 import org.ut4.gymmanager.service.EjercicioService;
@@ -71,5 +70,16 @@ public class RutinaWebController {
     public String eliminar(@PathVariable long id){
         rutinaService.borrarPorId(id);
         return "redirect:/web/rutinas";
+    }
+
+    @GetMapping("/{id}")
+    public String verDetalleRutina(@PathVariable long id, Model model){
+        Rutina rutina = rutinaService.buscarPorId(id).orElse(null);
+        if(rutina == null){
+            return "redirect:/web/rutinas";
+        }
+        List<RutinaEjercicio> ejerciciosRutina = rutina.getEjercicios();
+        model.addAttribute("rutina", rutina);
+        return "rutina-detalle";
     }
 }

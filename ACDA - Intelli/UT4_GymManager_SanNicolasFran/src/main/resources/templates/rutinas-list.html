@@ -37,7 +37,7 @@
         <td th:text="${rutina.nivel}">Nivel1</td>
         <td th:text="${rutina.ejercicios != null ? rutina.ejercicios.size() : 0}">0</td>
         <td>
-            <a th:href="@{'/web/rutinas/' + ${rutina.id}'}">Ver detalle</a>
+            <a th:href="'/web/rutinas/' + ${rutina.id}">Ver detalle</a>
             <a th:href="@{'/web/rutinas/' + ${rutina.id} + '/editar'}">Editar</a>
             <a th:href="@{'/web/rutinas/' + ${rutina.id} + '/borrar'}">Borrar</a>
         </td>
